@@ -12,7 +12,10 @@ type Props = {
 export default function LivePreview(p:Props) {
   const colors=colorPalettes[p.palette]??colorPalettes[0];
   const [activeSection,setActiveSection]=useState("home");
-  const [ctaClicked,setCtaClicked]=useState(false);\n  const [selectedMenuItem,setSelectedMenuItem]=useState<number|null>(null);\n  const motionClass=p.motion.toLowerCase()==="none"?"motion-none":p.motion.toLowerCase()==="playful"?"motion-playful":"motion-subtle";\n  const styleClass="style-"+p.style.toLowerCase().replace(/[^a-z]+/g,"-");
+  const [ctaClicked,setCtaClicked]=useState(false);
+  const [selectedMenuItem,setSelectedMenuItem]=useState<number|null>(null);
+  const motionClass=p.motion.toLowerCase()==="none"?"motion-none":p.motion.toLowerCase()==="playful"?"motion-playful":"motion-subtle";
+  const styleClass="style-"+p.style.toLowerCase().replace(/[^a-z]+/g,"-");
   const radius=p.buttonStyle==="Pill"?"999px":p.buttonStyle==="Square"?"5px":"14px";
   const editable=(value:string,onChange:(v:string)=>void,extra:any={})=>({contentEditable:true,suppressContentEditableWarning:true,role:"textbox" as const,"aria-label":"Edit text",onBlur:(e:any)=>{const next=e.currentTarget.innerText;if(next!==value)onChange(next)},...extra});
   const jump=(id:string)=>{setActiveSection(id);const frame=document.querySelector(".previewDeviceShell .previewFrame");const target=document.getElementById("site-"+id);if(frame&&target){frame.scrollTo({top:target.offsetTop-frame.getBoundingClientRect().top+frame.scrollTop,behavior:"smooth"});}};
