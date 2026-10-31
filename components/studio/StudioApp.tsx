@@ -109,7 +109,7 @@ export default function StudioApp() {
         setMotion={value => updateDesign("motion", value)} />
       <LivePreview mobilePreview={design.mobilePreview} palette={design.palette} businessName={design.businessName}
         heading={design.heading} setHeading={value => updateDesign("heading", value)} style={design.style}
-        layout={design.layout} headingFont={design.headingFont} buttonStyle={design.buttonStyle} />
+        layout={design.layout} headingFont={design.headingFont} bodyFont={design.bodyFont} buttonStyle={design.buttonStyle}\n        tagline={design.tagline} setTagline={value => updateDesign("tagline", value)} bodyCopy={design.bodyCopy} setBodyCopy={value => updateDesign("bodyCopy", value)}\n        cta={design.cta} setCta={value => updateDesign("cta", value)} features={design.features} setFeature={(index, value) => updateDesign("features", design.features.map((item, i) => i === index ? value : item))} />
       {inspectorOpen && <InspectorPanel businessName={design.businessName}
         setBusinessName={value => updateDesign("businessName", value)} heading={design.heading}
         setHeading={value => updateDesign("heading", value)} onClose={() => setInspectorOpen(false)} />}
