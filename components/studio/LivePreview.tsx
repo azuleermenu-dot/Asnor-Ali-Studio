@@ -14,8 +14,8 @@ export default function LivePreview(p:Props) {
   const [activeSection,setActiveSection]=useState("home");
   const [ctaClicked,setCtaClicked]=useState(false);
   const radius=p.buttonStyle==="Pill"?"999px":p.buttonStyle==="Square"?"5px":"14px";
-  const editable=(value:string,onChange:(v:string)=>void,extra:any={})=>({contentEditable:true,suppressContentEditableWarning:true,role:"textbox" as const,onInput:(e:any)=>onChange(e.currentTarget.innerText),...extra});
-  const jump=(id:string)=>{setActiveSection(id);document.getElementById("site-"+id)?.scrollIntoView({behavior:"smooth",block:"start"});};
+  const editable=(value:string,onChange:(v:string)=>void,extra:any={})=>({contentEditable:true,suppressContentEditableWarning:true,role:"textbox" as const,"aria-label":"Edit text",onBlur:(e:any)=>{const next=e.currentTarget.innerText;if(next!==value)onChange(next)},...extra});
+  const jump=(id:string)=>{setActiveSection(id);const frame=document.querySelector(".previewDeviceShell .previewFrame");const target=document.getElementById("site-"+id);if(frame&&target){frame.scrollTo({top:target.offsetTop-frame.getBoundingClientRect().top+frame.scrollTop,behavior:"smooth"});}};
   return <section className="canvasArea">
     <div className="canvasTop"><span><MousePointer2 size={14}/> Interactive website preview</span><span>{p.mobilePreview?"Mobile · 390px":"Desktop · 100%"} <span className="previewLiveDot"/></span></div>
     <div className={`previewDeviceShell ${p.mobilePreview?"phone":""}`}>
