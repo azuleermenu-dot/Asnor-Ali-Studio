@@ -177,3 +177,21 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
  .controlsPanelWrap.toolsPanelOpen{display:block;position:fixed;z-index:12;left:64px;top:58px;bottom:0;width:230px;overflow:auto;background:#0e121d;border-right:1px solid var(--line);box-shadow:12px 0 35px #0006;padding:14px}
  .controlsPanelWrap.toolsPanelOpen .controls{display:block;height:100%;overflow:auto}
 }
+
+/* Tool-to-preview feedback: visual styles, motion, and interactive menu states */
+.previewFrame.style-modern .previewHero{background-image:radial-gradient(ellipse at 80% 45%,#8b7cff30,transparent 40%),linear-gradient(110deg,#171a27,#25283a)}
+.previewFrame.style-luxury .previewHero{background-image:linear-gradient(120deg,#10100f,#28231b)}
+.previewFrame.style-luxury .previewCopy h1{font-family:Georgia,serif!important;font-weight:400;letter-spacing:-.04em}
+.previewFrame.style-futuristic .previewHero{background-image:radial-gradient(ellipse at 85% 45%,#00d9ff30,transparent 35%),linear-gradient(120deg,#07121e,#101d32)}
+.previewFrame.style-futuristic .previewCta{box-shadow:0 0 22px #65dfff35}
+.previewFrame.style-organic .previewHero{background-image:radial-gradient(ellipse at 80% 45%,#b6c99a30,transparent 40%),linear-gradient(120deg,#182018,#2a3528)}
+.previewFrame.style-editorial .previewHero{background-image:radial-gradient(ellipse at 78% 45%,#b47b4c45,transparent 38%),linear-gradient(100deg,#15130f,#2a2119)}
+.previewFrame.motion-none .previewHero,.previewFrame.motion-none .previewContentSection,.previewFrame.motion-none .previewAboutSection,.previewFrame.motion-none .previewContactSection{animation:none!important}
+.previewFrame.motion-none *{scroll-behavior:auto!important;transition:none!important}
+.previewFrame.motion-playful .previewHero{animation:previewSlideIn .7s cubic-bezier(.16,1.2,.3,1) both}
+.previewFrame.motion-playful .previewCta:hover{transform:translateY(-4px) rotate(-1deg) scale(1.03)}
+.previewFrame.motion-playful .coffeeArt:hover .cup{transform:rotate(8deg) scale(1.12)}
+.previewFrame.motion-subtle .previewHero,.previewFrame.motion-subtle .previewContentSection,.previewFrame.motion-subtle .previewAboutSection,.previewFrame.motion-subtle .previewContactSection{animation:previewSlideIn .55s ease both}
+.previewMenuCards article.menuSelected{border-color:currentColor;background:color-mix(in srgb,currentColor 9%,transparent);transform:translateX(5px)}
+.menuItemDetail{display:block;color:#a9d8b6!important;opacity:1!important;margin-top:4px}
+.previewMenuCards article:focus-visible{outline:2px solid #a9a0ff;outline-offset:3px}
