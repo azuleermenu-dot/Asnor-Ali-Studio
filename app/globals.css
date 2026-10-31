@@ -142,3 +142,22 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 @media(max-width:1100px){.workspace{grid-template-columns:54px 205px minmax(0,1fr)}.inspector{position:absolute;right:0;top:58px;bottom:0;width:260px;z-index:10;box-shadow:-15px 0 35px #0005}.previewHero{min-height:360px}.coffeeArt{height:230px}}
 @media(max-width:760px){.studio{height:100dvh;min-height:0}.toolbar{gap:8px;padding:0 9px;height:54px}.toolbar .brand{font-size:9px}.projectName{margin-left:0}.projectName input{width:95px;font-size:10px}.presetPicker{display:none}.saveState{display:none}.workspace{grid-template-columns:48px minmax(0,1fr);grid-template-rows:minmax(0,1fr)}.controls{display:none}.canvasArea{grid-column:2;grid-row:1}.canvasTop{padding:8px 10px;font-size:10px}.previewDeviceShell{padding:8px}.previewDeviceShell.phone{width:min(100%,390px);height:calc(100% - 8px)}.previewHero{grid-template-columns:1fr;min-height:auto;padding:12% 8%;gap:25px}.previewCopy h1{font-size:clamp(36px,10vw,58px)}.coffeeArt{height:210px}.previewNav{min-height:52px;padding:10px 5%}.previewNavLinks{gap:9px}.previewNavLinks button{font-size:9px}.previewAboutSection{grid-template-columns:1fr;gap:0}.previewContactSection{align-items:flex-start;flex-direction:column}.previewFeatures{justify-content:flex-start}.inspector{top:54px;width:min(280px,82vw)}.toolRail button{font-size:8px}.exportBtn{padding:8px}.history{gap:0}}
 @media(prefers-reduced-motion:reduce){.previewFrame{scroll-behavior:auto}.previewCta,.coffeeArt .cup,.previewMenuCards article{transition:none}}
+
+/* Scroll + slide interaction fixes */
+.studio{height:100dvh;min-height:0;overflow:hidden}
+.workspace{min-height:0;overflow:hidden}
+.canvasArea{min-height:0;overflow:hidden;display:flex;flex-direction:column}
+.previewDeviceShell{flex:1;min-height:0;height:auto;overflow:hidden;align-items:stretch}
+.previewDeviceShell .previewFrame{flex:1;min-height:0;height:100%;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;touch-action:pan-y;scrollbar-width:thin;scroll-padding-top:70px}
+.previewDeviceShell .previewFrame>*{flex-shrink:0}
+.previewDeviceShell .previewFrame section[id]{scroll-margin-top:70px}
+.previewFrame [contenteditable="true"]{cursor:text;user-select:text;-webkit-user-select:text;touch-action:pan-y;white-space:pre-wrap;overflow-wrap:anywhere}
+.previewFrame [contenteditable="true"]:focus{outline:1px dashed #a9a0ff;outline-offset:4px;background:color-mix(in srgb,currentColor 5%,transparent)}
+.previewFrame [contenteditable="true"]:focus-visible{outline:1px dashed #a9a0ff}
+.previewFrame .previewHero,.previewContentSection,.previewAboutSection,.previewContactSection{scroll-snap-align:start}
+.previewFrame{scroll-snap-type:y proximity}
+.previewFrame .previewHero{animation:previewSlideIn .55s cubic-bezier(.2,.75,.25,1) both}
+.previewFrame .previewContentSection,.previewFrame .previewAboutSection,.previewFrame .previewContactSection{animation:previewSlideIn .65s cubic-bezier(.2,.75,.25,1) both}
+@keyframes previewSlideIn{from{opacity:.55;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:760px){.studio{height:100dvh;min-height:0;overflow:hidden}.workspace{min-height:0;overflow:hidden}.canvasArea{min-height:0;height:100%;overflow:hidden}.previewDeviceShell{height:auto;min-height:0;flex:1;padding:8px}.previewDeviceShell.phone{height:100%;min-height:0}.previewDeviceShell .previewFrame{height:100%;min-height:0;overflow-y:auto;overscroll-behavior:contain;touch-action:pan-y}.previewFrame .previewHero{min-height:0}.previewFrame .previewNav{position:sticky;top:0}}
+@media(prefers-reduced-motion:reduce){.previewFrame{scroll-snap-type:none}.previewFrame .previewHero,.previewFrame .previewContentSection,.previewFrame .previewAboutSection,.previewFrame .previewContactSection{animation:none}}
