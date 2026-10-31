@@ -218,3 +218,86 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .previewFrame.style-futuristic .previewNav,.previewFrame.style-futuristic .previewMenuCards article{border-color:#55dfff66}
 .previewFrame.style-organic .previewCopy h1{font-family:Georgia,serif!important;font-weight:400}
 .previewFrame.style-editorial .previewCopy h1{font-family:Georgia,serif!important;font-weight:400;font-size:clamp(34px,4vw,58px)}
+
+/* Cross-device responsive hardening: laptop, tablet, portrait/landscape phones */
+html,body{width:100%;max-width:100%;overflow-x:hidden}
+.studio,.workspace,.canvasArea,.previewDeviceShell,.previewFrame{min-width:0}
+.toolbar{max-width:100%;min-width:0}
+.previewDeviceShell{width:100%;max-width:100%;display:flex;justify-content:center}
+.previewDeviceShell .previewFrame{width:100%;max-width:100%;margin:0 auto}
+.previewFrame .previewNav{gap:12px;align-items:center}
+.previewFrame .previewNavLinks{display:flex;gap:clamp(8px,1.5vw,20px);flex-wrap:wrap}
+.previewFrame .previewNavLinks button{background:transparent;border:0;color:inherit;font-size:inherit;padding:4px}
+.previewFrame .previewHero{min-width:0}
+.previewFrame .previewCopy{max-width:62%;min-width:0}
+.previewFrame .previewCopy h1{font-size:clamp(28px,4vw,58px)}
+.previewFrame .previewMenuCards article{min-width:0}
+.previewFrame .previewMenuCards article>div{min-width:0}
+.previewFrame .previewMenuCards b,.previewFrame .previewMenuCards small{overflow-wrap:anywhere}
+@media(min-width:1101px) and (max-width:1400px){
+ .workspace{grid-template-columns:58px minmax(190px,220px) minmax(0,1fr) minmax(220px,240px)}
+ .controls,.inspector{padding:12px}
+ .canvasArea{padding:12px}
+}
+@media(max-width:1100px){
+ .workspace{grid-template-columns:54px minmax(180px,210px) minmax(0,1fr)}
+ .controlsPanelWrap{min-width:0}
+ .canvasArea{padding:12px}
+ .previewFrame .previewNavLinks{gap:8px}
+ .previewFrame .previewNavLinks button{font-size:9px}
+ .previewFrame .previewHero{padding:7% 6%}
+ .previewFrame .previewCopy{max-width:65%}
+ .previewFrame .coffeeArt{max-width:35%}
+}
+@media(max-width:760px){
+ .workspace{grid-template-columns:46px minmax(0,1fr);grid-template-rows:minmax(0,1fr)}
+ .canvasArea{grid-column:2;grid-row:1;padding:8px}
+ .previewDeviceShell{padding:0}
+ .previewFrame{border-radius:10px}
+ .previewFrame .previewNav{padding:12px 5%;flex-wrap:wrap}
+ .previewFrame .previewNavLinks{display:none}
+ .previewFrame .previewHero{display:flex;flex-direction:column;align-items:stretch;gap:18px;padding:32px 7%}
+ .previewFrame .previewCopy{max-width:100%;width:100%}
+ .previewFrame .previewCopy h1{font-size:clamp(32px,8vw,48px)}
+ .previewFrame .coffeeArt{width:100%;max-width:none;height:150px}
+ .previewFrame .cup{font-size:68px}
+ .previewFrame .previewFeatures{flex-wrap:wrap;gap:10px 18px}
+ .previewFrame .previewContentSection,.previewFrame .previewAboutSection,.previewFrame .previewContactSection{padding:30px 7%}
+ .previewFrame .previewMenuCards article{gap:10px;padding:13px}
+ .previewFrame .previewFooter{flex-wrap:wrap}
+}
+@media(max-width:480px){
+ .toolbar{gap:6px;padding:8px;height:auto;min-height:52px}
+ .toolbar .brand{max-width:110px;overflow:hidden}
+ .history button,.devices button{padding:5px}
+ .exportBtn{font-size:10px;padding:7px 9px}
+ .canvasTop{gap:8px;flex-wrap:wrap}
+ .previewFrame .previewNav{font-size:9px}
+ .previewFrame .previewHero{padding:26px 6%}
+ .previewFrame .previewCopy h1{font-size:clamp(29px,9vw,40px)}
+ .previewFrame .previewCopy p{font-size:12px}
+ .previewFrame .previewMenuCards article{grid-template-columns:auto minmax(0,1fr) auto}
+ .previewFrame .previewAboutSection{display:block}
+ .previewFrame .previewContactSection{align-items:stretch}
+ .previewFrame .previewContactSection button{align-self:flex-start}
+ .mobileToolsToggle{left:56px;bottom:10px;padding:9px 12px}
+ .controlsPanelWrap.toolsPanelOpen{left:54px;right:8px;top:58px;bottom:58px}
+}
+@media(max-width:360px){
+ .toolbar .brand{display:none}
+ .previewFrame .previewFeatures{display:grid;grid-template-columns:1fr}
+ .previewFrame .previewMenuCards article{padding:10px}
+ .previewFrame .previewCopy h1{font-size:29px}
+}
+@media(orientation:landscape) and (max-height:520px) and (max-width:900px){
+ .studio{height:100dvh;min-height:0}
+ .toolbar{min-height:44px;padding:5px 8px}
+ .workspace{min-height:0}
+ .canvasTop{margin-bottom:5px}
+ .previewFrame .previewHero{flex-direction:row;padding:4% 6%;gap:12px}
+ .previewFrame .previewCopy{max-width:65%}
+ .previewFrame .coffeeArt{width:30%;height:100px}
+ .previewFrame .cup{font-size:52px}
+ .previewFrame .previewCopy h1{font-size:clamp(25px,5vw,38px);margin:8px 0}
+ .previewFrame .previewContentSection,.previewFrame .previewAboutSection,.previewFrame .previewContactSection{padding:20px 6%}
+}
