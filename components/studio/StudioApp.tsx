@@ -117,7 +117,8 @@ export default function StudioApp() {
         setBusinessName={value => updateDesign("businessName", value)} heading={design.heading}
         setHeading={value => updateDesign("heading", value)} tagline={design.tagline} setTagline={value => updateDesign("tagline", value)} bodyCopy={design.bodyCopy} setBodyCopy={value => updateDesign("bodyCopy", value)} cta={design.cta} setCta={value => updateDesign("cta", value)} onClose={() => setInspectorOpen(false)} />}
     </div>
-    <button className="mobileToolsToggle" onClick={() => setToolsOpen(value => !value)} aria-expanded={toolsOpen}>{toolsOpen ? "Close tools" : "Tools & settings"}</button>\n    {!inspectorOpen && <button className="reopenInspector" onClick={() => setInspectorOpen(true)}>Show inspector</button>}
+    <button className="mobileToolsToggle" onClick={() => setToolsOpen(value => !value)} aria-expanded={toolsOpen}>{toolsOpen ? "Close tools" : "Tools & settings"}</button>
+    {!inspectorOpen && <button className="reopenInspector" onClick={() => setInspectorOpen(true)}>Show inspector</button>}
     {exportOpen && <ExportDialog onClose={() => setExportOpen(false)} style={design.style} palette={design.palette}
       projectName={design.projectName} setProjectName={value => updateDesign("projectName", value)}
       onSave={saveDesign} design={design} />}
