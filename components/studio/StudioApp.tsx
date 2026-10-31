@@ -25,6 +25,7 @@ export default function StudioApp() {
   const [exportOpen, setExportOpen] = useState(false);
   const [saved, setSaved] = useState(false);
   const [inspectorOpen, setInspectorOpen] = useState(true);
+  const [toolsOpen, setToolsOpen] = useState(false);
   const [hydrated, setHydrated] = useState(false);
   const undoStack = useRef<DesignState[]>([]);
   const redoStack = useRef<DesignState[]>([]);
@@ -100,13 +101,13 @@ export default function StudioApp() {
       onPreset={applyPreset} />
     <div className="workspace">
       <ToolSidebar activeTool={activeTool} onSelect={setActiveTool} />
-      <DesignControls activeTool={activeTool} style={design.style} setStyle={value => updateDesign("style", value)}
+      <div className={`controlsPanelWrap${toolsOpen ? " toolsPanelOpen" : ""}`}><DesignControls activeTool={activeTool} style={design.style} setStyle={value => updateDesign("style", value)}
         palette={design.palette} setPalette={value => updateDesign("palette", value)} layout={design.layout}
         setLayout={value => updateDesign("layout", value)} headingFont={design.headingFont}
         setHeadingFont={value => updateDesign("headingFont", value)} bodyFont={design.bodyFont}
         setBodyFont={value => updateDesign("bodyFont", value)} buttonStyle={design.buttonStyle}
         setButtonStyle={value => updateDesign("buttonStyle", value)} motion={design.motion}
-        setMotion={value => updateDesign("motion", value)} />
+        setMotion={value => updateDesign("motion", value)} /></div>
       <LivePreview mobilePreview={design.mobilePreview} palette={design.palette} businessName={design.businessName} setBusinessName={value => updateDesign("businessName", value)}
         heading={design.heading} setHeading={value => updateDesign("heading", value)} style={design.style}
         layout={design.layout} headingFont={design.headingFont} bodyFont={design.bodyFont} buttonStyle={design.buttonStyle}
@@ -116,7 +117,7 @@ export default function StudioApp() {
         setBusinessName={value => updateDesign("businessName", value)} heading={design.heading}
         setHeading={value => updateDesign("heading", value)} tagline={design.tagline} setTagline={value => updateDesign("tagline", value)} bodyCopy={design.bodyCopy} setBodyCopy={value => updateDesign("bodyCopy", value)} cta={design.cta} setCta={value => updateDesign("cta", value)} onClose={() => setInspectorOpen(false)} />}
     </div>
-    {!inspectorOpen && <button className="reopenInspector" onClick={() => setInspectorOpen(true)}>Show inspector</button>}
+    <button className="mobileToolsToggle" onClick={() => setToolsOpen(value => !value)} aria-expanded={toolsOpen}>{toolsOpen ? "Close tools" : "Tools & settings"}</button>\n    {!inspectorOpen && <button className="reopenInspector" onClick={() => setInspectorOpen(true)}>Show inspector</button>}
     {exportOpen && <ExportDialog onClose={() => setExportOpen(false)} style={design.style} palette={design.palette}
       projectName={design.projectName} setProjectName={value => updateDesign("projectName", value)}
       onSave={saveDesign} design={design} />}
