@@ -89,3 +89,56 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .exportActions .primary{background:linear-gradient(120deg,#a8d8ff,#a393ff);color:#101321;border:0}
 .exportNotice{padding:10px;border-radius:8px;background:#252c45;color:#c9d4f4;font-size:11px;line-height:1.5}
 @media(max-width:760px){.presetPicker{order:4}.exportActions{grid-template-columns:1fr}.toolbar .presetPicker{font-size:9px}}
+
+/* Interactive canvas overhaul */
+.previewDeviceShell{width:100%;height:100%;min-height:0;display:flex;justify-content:center;align-items:stretch;overflow:hidden;padding:16px 22px;background:radial-gradient(ellipse at 50% 0%,#222a43 0,transparent 65%);position:relative}
+.previewDeviceShell.phone{max-width:440px;align-self:center;height:calc(100% - 22px);padding:16px 9px;border:1px solid #59617a;border-radius:32px;background:#05070c;box-shadow:0 20px 55px #0008}
+.previewDeviceShell .previewFrame{width:100%;height:100%;overflow:auto;scroll-behavior:smooth;border-radius:10px;box-shadow:0 15px 40px #0005;scrollbar-width:thin}
+.previewDeviceShell.phone .previewFrame{border-radius:22px}
+.phoneNotch{position:absolute;z-index:4;top:20px;width:90px;height:17px;background:#05070c;border-radius:0 0 12px 12px}
+.previewNav{position:sticky;top:0;z-index:8;min-height:64px;padding:14px 5%;display:flex;align-items:center;justify-content:space-between;gap:14px;background:color-mix(in srgb,currentColor 4%,transparent);backdrop-filter:blur(15px);border-bottom:1px solid color-mix(in srgb,currentColor 12%,transparent);font-size:11px}
+.previewNav b{letter-spacing:.08em;font-size:12px;white-space:nowrap}
+.previewNavLinks{display:flex;gap:clamp(8px,2vw,24px)}
+.previewNavLinks button,.previewCart{border:0;background:transparent;color:inherit;font-size:11px;opacity:.72;padding:6px 3px}
+.previewNavLinks button:hover,.previewNavLinks button.navActive{opacity:1;text-decoration:underline;text-underline-offset:5px}
+.previewCart{display:none}
+.previewHero{min-height:440px;padding:7% 8%;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:3%;scroll-margin-top:60px}
+.previewCopy{position:relative;z-index:2}
+.previewCopy small{display:inline-block;font-size:10px;letter-spacing:.16em;font-weight:700;opacity:.7;outline-color:#8b7cff}
+.previewCopy h1{font-size:clamp(34px,4.5vw,68px);line-height:.98;letter-spacing:-.055em;white-space:pre-line;margin:22px 0;outline-color:#8b7cff;cursor:text}
+.previewCopy p{font-size:clamp(12px,1.1vw,15px);line-height:1.7;max-width:390px;opacity:.72;outline-color:#8b7cff;cursor:text}
+.previewCta{display:inline-flex;align-items:center;gap:12px;margin-top:18px;border:0;padding:13px 20px;color:#11131a;font-size:11px;font-weight:700;cursor:pointer;transition:transform .2s,filter .2s}
+.previewCta:hover{transform:translateY(-3px);filter:brightness(1.08)}
+.previewToast{display:block;font-size:10px;margin-top:10px;opacity:.7}
+.coffeeArt{height:300px;position:relative;display:grid;place-items:center;overflow:hidden;border-radius:48% 48% 8px 8px;background:radial-gradient(circle at 50% 42%,#e8c9a3 0,#b8794b 24%,#50372c 46%,#201a18 72%);box-shadow:inset 0 0 45px #0005}
+.coffeeOrbit{position:absolute;width:75%;aspect-ratio:1;border:1px solid #fff5;border-radius:50%;transform:rotate(-25deg)}
+.cup{font-size:clamp(70px,9vw,130px);filter:drop-shadow(0 18px 12px #0008);transform:rotate(-9deg);transition:transform .4s}
+.coffeeArt:hover .cup{transform:rotate(0) scale(1.08)}
+.artLabel{position:absolute;bottom:18px;left:18px;font-size:8px;letter-spacing:.15em;line-height:1.7;color:#fff9}
+.previewFeatures{display:flex;justify-content:space-around;gap:12px;padding:18px 5%;border-top:1px solid color-mix(in srgb,currentColor 15%,transparent);border-bottom:1px solid color-mix(in srgb,currentColor 15%,transparent);font-size:10px;flex-wrap:wrap}
+.previewFeatures span{cursor:text;outline-color:#8b7cff}
+.previewContentSection,.previewAboutSection,.previewContactSection{padding:8% 9%;scroll-margin-top:65px}
+.previewSectionEyebrow,.previewAboutSection small,.previewContactSection small{font-size:9px;letter-spacing:.18em;opacity:.65;font-weight:700}
+.previewContentSection h2,.previewAboutSection h2,.previewContactSection h2{font-size:clamp(28px,4vw,48px);line-height:1.05;letter-spacing:-.04em;margin:18px 0 28px}
+.previewContentSection h2 em,.previewAboutSection h2 em,.previewContactSection h2 em{font-family:Georgia,serif;font-weight:400}
+.previewMenuCards{display:grid;gap:8px}
+.previewMenuCards article{display:flex;align-items:center;gap:16px;padding:16px;border:1px solid color-mix(in srgb,currentColor 15%,transparent);transition:transform .2s,background .2s}
+.previewMenuCards article:hover{transform:translateX(5px);background:color-mix(in srgb,currentColor 5%,transparent)}
+.previewMenuCards article>span{font-size:10px;opacity:.5}
+.previewMenuCards article div{display:grid;gap:5px;flex:1}
+.previewMenuCards article b{font-size:13px}.previewMenuCards article small{font-size:10px;opacity:.65}
+.previewMenuCards article strong{font-size:18px;font-weight:400}
+.previewAboutSection{display:grid;grid-template-columns:1fr 1fr;gap:30px;background:color-mix(in srgb,currentColor 4%,transparent)}
+.previewAboutSection p{font-size:13px;line-height:1.8;opacity:.72;align-self:center}
+.previewContactSection{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.previewContactSection button{border:1px solid color-mix(in srgb,currentColor 30%,transparent);background:transparent;color:inherit;padding:13px 18px;border-radius:999px}
+.previewFooter{display:flex;justify-content:space-between;gap:12px;padding:18px 6%;font-size:10px;border-top:1px solid color-mix(in srgb,currentColor 15%,transparent);opacity:.7}
+.layout-minimal .previewHero{min-height:380px}.layout-grid .previewHero{grid-template-columns:1fr 1fr}.layout-asymmetric .previewHero{grid-template-columns:1.3fr .7fr}.layout-card-based .previewMenuCards article{border-radius:12px;background:color-mix(in srgb,currentColor 4%,transparent)}
+.inspectorBadge{font-size:8px;letter-spacing:.1em;background:#333956;color:#c9d1ff;padding:4px 6px;border-radius:4px;margin-left:7px}
+.inspectorFields{display:grid;gap:14px}.inspectorNote{display:flex;gap:8px;align-items:flex-start;padding:10px;border:1px solid var(--line);border-radius:8px;color:#9da9c6;font-size:10px;line-height:1.5}
+.inspectorFields label{display:grid;gap:7px;font-size:10px;color:#aab4ca}
+.inspectorFields input,.inspectorFields textarea{width:100%;background:#0b0f1a;border:1px solid #303951;border-radius:7px;padding:10px;color:#e9edff;font-size:11px;resize:vertical}
+.canvasArea{min-width:0}
+@media(max-width:1100px){.workspace{grid-template-columns:54px 205px minmax(0,1fr)}.inspector{position:absolute;right:0;top:58px;bottom:0;width:260px;z-index:10;box-shadow:-15px 0 35px #0005}.previewHero{min-height:360px}.coffeeArt{height:230px}}
+@media(max-width:760px){.studio{height:100dvh;min-height:0}.toolbar{gap:8px;padding:0 9px;height:54px}.toolbar .brand{font-size:9px}.projectName{margin-left:0}.projectName input{width:95px;font-size:10px}.presetPicker{display:none}.saveState{display:none}.workspace{grid-template-columns:48px minmax(0,1fr);grid-template-rows:minmax(0,1fr)}.controls{display:none}.canvasArea{grid-column:2;grid-row:1}.canvasTop{padding:8px 10px;font-size:10px}.previewDeviceShell{padding:8px}.previewDeviceShell.phone{width:min(100%,390px);height:calc(100% - 8px)}.previewHero{grid-template-columns:1fr;min-height:auto;padding:12% 8%;gap:25px}.previewCopy h1{font-size:clamp(36px,10vw,58px)}.coffeeArt{height:210px}.previewNav{min-height:52px;padding:10px 5%}.previewNavLinks{gap:9px}.previewNavLinks button{font-size:9px}.previewAboutSection{grid-template-columns:1fr;gap:0}.previewContactSection{align-items:flex-start;flex-direction:column}.previewFeatures{justify-content:flex-start}.inspector{top:54px;width:min(280px,82vw)}.toolRail button{font-size:8px}.exportBtn{padding:8px}.history{gap:0}}
+@media(prefers-reduced-motion:reduce){.previewFrame{scroll-behavior:auto}.previewCta,.coffeeArt .cup,.previewMenuCards article{transition:none}}
