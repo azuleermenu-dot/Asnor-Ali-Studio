@@ -12,7 +12,7 @@ import ExportDialog from "./ExportDialog";
 const STORAGE_KEY = "asnor-studio-design";
 const initialDesign = {
   style: "Modern", palette: 0, mobilePreview: false,
-  projectName: "Coffee Shop Website", heading: "More Than\nJust Coffee",
+  projectName: "Coffee Shop Website", heading: "More Than\nJust Coffee", tagline: "GOOD COFFEE. REAL PEOPLE.", bodyCopy: "A cozy space for great coffee, good conversations, and a stronger community.", cta: "Explore Menu", features: ["Quality Beans", "Cozy Atmosphere", "Local Community"],
   businessName: "Wicked Coffee", layout: "Editorial",
   headingFont: "Playfair Display", bodyFont: "Inter",
   buttonStyle: "Pill", motion: "Subtle",
@@ -109,10 +109,12 @@ export default function StudioApp() {
         setMotion={value => updateDesign("motion", value)} />
       <LivePreview mobilePreview={design.mobilePreview} palette={design.palette} businessName={design.businessName}
         heading={design.heading} setHeading={value => updateDesign("heading", value)} style={design.style}
-        layout={design.layout} headingFont={design.headingFont} buttonStyle={design.buttonStyle} />
+        layout={design.layout} headingFont={design.headingFont} bodyFont={design.bodyFont} buttonStyle={design.buttonStyle}
+        tagline={design.tagline} setTagline={value => updateDesign("tagline", value)} bodyCopy={design.bodyCopy} setBodyCopy={value => updateDesign("bodyCopy", value)}
+        cta={design.cta} setCta={value => updateDesign("cta", value)} features={design.features} setFeature={(index, value) => updateDesign("features", design.features.map((item, i) => i === index ? value : item))} />
       {inspectorOpen && <InspectorPanel businessName={design.businessName}
         setBusinessName={value => updateDesign("businessName", value)} heading={design.heading}
-        setHeading={value => updateDesign("heading", value)} onClose={() => setInspectorOpen(false)} />}
+        setHeading={value => updateDesign("heading", value)} tagline={design.tagline} setTagline={value => updateDesign("tagline", value)} bodyCopy={design.bodyCopy} setBodyCopy={value => updateDesign("bodyCopy", value)} cta={design.cta} setCta={value => updateDesign("cta", value)} onClose={() => setInspectorOpen(false)} />}
     </div>
     {!inspectorOpen && <button className="reopenInspector" onClick={() => setInspectorOpen(true)}>Show inspector</button>}
     {exportOpen && <ExportDialog onClose={() => setExportOpen(false)} style={design.style} palette={design.palette}
