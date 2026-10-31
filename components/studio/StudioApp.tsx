@@ -12,8 +12,7 @@ import ExportDialog from "./ExportDialog";
 const STORAGE_KEY = "asnor-studio-design";
 const initialDesign = {
   style: "Modern", palette: 0, mobilePreview: false,
-  projectName: "Coffee Shop Website", heading: "More Than
-Just Coffee", tagline: "GOOD COFFEE. REAL PEOPLE.", bodyCopy: "A cozy space for great coffee, good conversations, and a stronger community.", cta: "Explore Menu", features: ["Quality Beans", "Cozy Atmosphere", "Local Community"],
+  projectName: "Coffee Shop Website", heading: "More Than Just Coffee", tagline: "GOOD COFFEE. REAL PEOPLE.", bodyCopy: "A cozy space for great coffee, good conversations, and a stronger community.", cta: "Explore Menu", features: ["Quality Beans", "Cozy Atmosphere", "Local Community"],
   businessName: "Wicked Coffee", layout: "Editorial",
   headingFont: "Playfair Display", bodyFont: "Inter",
   buttonStyle: "Pill", motion: "Subtle",
@@ -83,8 +82,7 @@ export default function StudioApp() {
   }
   function applyPreset(name: string) {
     const presets: Record<string, Partial<DesignState>> = {
-      "Coffee Editorial": { style:"Editorial", palette:1, layout:"Editorial", headingFont:"Playfair Display", buttonStyle:"Pill", businessName:"Wicked Coffee", heading:"More Than
-Just Coffee" },
+      "Coffee Editorial": { style:"Editorial", palette:1, layout:"Editorial", headingFont:"Playfair Display", buttonStyle:"Pill", businessName:"Wicked Coffee", heading:"More Than Just Coffee" },
       "Luxury Studio": { style:"Luxury", palette:0, layout:"Minimal", headingFont:"Georgia", buttonStyle:"Rounded" },
       "Tech Launch": { style:"Futuristic", palette:3, layout:"Grid", headingFont:"Inter", buttonStyle:"Square" },
       "Organic Wellness": { style:"Organic", palette:2, layout:"Asymmetric", headingFont:"DM Sans", buttonStyle:"Rounded" },
