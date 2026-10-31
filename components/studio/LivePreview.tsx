@@ -4,7 +4,7 @@ import { MousePointer2, WandSparkles, ArrowUpRight } from "lucide-react";
 import { colorPalettes } from "@/lib/design-presets";
 
 type Props = {
-  mobilePreview:boolean; palette:number; businessName:string; heading:string; setHeading:(v:string)=>void;
+  mobilePreview:boolean; palette:number; businessName:string; setBusinessName:(v:string)=>void; heading:string; setHeading:(v:string)=>void;
   style:string; layout:string; headingFont:string; bodyFont:string; buttonStyle:string;
   tagline:string; setTagline:(v:string)=>void; bodyCopy:string; setBodyCopy:(v:string)=>void;
   cta:string; setCta:(v:string)=>void; features:string[]; setFeature:(i:number,v:string)=>void;
@@ -22,7 +22,7 @@ export default function LivePreview(p:Props) {
       {p.mobilePreview&&<div className="phoneNotch"/>}
       <div className={`previewFrame ${p.mobilePreview?"phone":""} layout-${p.layout.toLowerCase().replace(/[^a-z]+/g,"-")}`} style={{background:colors[0],color:colors[1],fontFamily:p.bodyFont}}>
         <nav className="previewNav">
-          <b {...editable(p.businessName,()=>{})}>{p.businessName.toUpperCase()}</b>
+          <b {...editable(p.businessName,p.setBusinessName)}>{p.businessName.toUpperCase()}</b>
           <div className="previewNavLinks">{["Home","Menu","About","Contact"].map((x,i)=><button key={x} className={activeSection===x.toLowerCase()?"navActive":""} onClick={()=>jump(x.toLowerCase())}>{x}</button>)}</div>
           <button className="previewCart" aria-label="Open menu" onClick={()=>jump("menu")}>☰</button>
         </nav>
