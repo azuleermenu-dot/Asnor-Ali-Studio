@@ -107,7 +107,7 @@ export default function StudioApp() {
         setBodyFont={value => updateDesign("bodyFont", value)} buttonStyle={design.buttonStyle}
         setButtonStyle={value => updateDesign("buttonStyle", value)} motion={design.motion}
         setMotion={value => updateDesign("motion", value)} />
-      <LivePreview mobilePreview={design.mobilePreview} palette={design.palette} businessName={design.businessName}
+      <LivePreview mobilePreview={design.mobilePreview} palette={design.palette} businessName={design.businessName} setBusinessName={value => updateDesign("businessName", value)}
         heading={design.heading} setHeading={value => updateDesign("heading", value)} style={design.style}
         layout={design.layout} headingFont={design.headingFont} bodyFont={design.bodyFont} buttonStyle={design.buttonStyle}
         tagline={design.tagline} setTagline={value => updateDesign("tagline", value)} bodyCopy={design.bodyCopy} setBodyCopy={value => updateDesign("bodyCopy", value)}
